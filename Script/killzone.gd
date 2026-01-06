@@ -1,9 +1,11 @@
 extends Area2D
 
 @onready var timer: Timer = $Timer
+@onready var animation_player = $AnimationPlayer
 
-func _on_body_entered(body: Node2D) -> void:
-	print("YOU DIE!")
+func _on_body_entered(body):
+	animation_player.play("die")
+	#print("YOU DIE!")
 	Engine.time_scale = 0.5
 	body.get_node("CollisionShape2D").queue_free()
 	timer.start()
