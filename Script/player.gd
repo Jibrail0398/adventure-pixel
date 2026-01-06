@@ -14,6 +14,8 @@ const MAX_JUMP = 2  # <<< DOUBLE JUMP
 
 # ===================== NODES =====================
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var game_manager: Node = %GameManager
+@onready var animation_player = $AnimationPlayer
 
 # ===================== STATES =====================
 var is_rolling = false
@@ -39,6 +41,9 @@ func _physics_process(delta: float) -> void:
 	# ===================== JUMP & DOUBLE JUMP =====================
 	if Input.is_action_just_pressed("jump") and jump_count < MAX_JUMP:
 		velocity.y = JUMP_VELOCITY
+		animation_player.play("jump")
+		
+	# Trigger rolling animation when the "rolling" action is pressed
 		jump_count += 1
 
 	# Roll di tanah
