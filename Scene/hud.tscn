@@ -1,8 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw3i27yllr8hl"]
+[gd_scene load_steps=5 format=3 uid="uid://dw3i27yllr8hl"]
 
 [ext_resource type="Script" uid="uid://cg8yakgevo7wv" path="res://hud.gd" id="1_cevek"]
+[ext_resource type="Texture2D" uid="uid://dgt4fgyprgkll" path="res://Asset/images/restart.png" id="2_3quw2"]
 
-[node name="HUD" type="CanvasLayer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cevek"]
+bg_color = Color(0.6901961, 0.4117647, 0.23137255, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3quw2"]
+bg_color = Color(0.6901961, 0.4117647, 0.23137255, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="HUD" type="CanvasLayer" groups=["HUD_GROUP"]]
 process_mode = 3
 script = ExtResource("1_cevek")
 
@@ -24,9 +47,51 @@ offset_left = 1.0
 offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.31344074, 0.31344074, 0.31344074, 0.392)
+color = Color(0.3137255, 0.3137255, 0.3137255, 0.59607846)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -50.0
+offset_right = 136.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="PauseMenu/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_cevek")
+text = "RESUME"
+expand_icon = true
+
+[node name="Exit" type="Button" parent="PauseMenu/HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_3quw2")
+text = "EXIT"
+
+[node name="GameOverScreen" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8510644, 0.29332596, 0.28931737, 0.707)
+
+[node name="Died" type="Label" parent="GameOverScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,19 +99,35 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -20.0
+offset_top = -11.5
 offset_right = 20.0
-offset_bottom = 20.0
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.95748645, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.6414847, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 90
+text = "You Died!"
 
-[node name="Start" type="Button" parent="PauseMenu/VBoxContainer"]
-layout_mode = 2
-text = "Resume"
+[node name="RestartButton" type="Button" parent="GameOverScreen"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.70400006
+anchor_right = 0.5
+anchor_bottom = 0.70400006
+offset_left = -58.0
+offset_top = -54.192078
+offset_right = 462.0
+offset_bottom = 465.80795
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("2_3quw2")
+flat = true
 
-[node name="Exit" type="Button" parent="PauseMenu/VBoxContainer"]
-layout_mode = 2
-text = "Exit"
-
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="PauseMenu/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_restart_button_pressed"]

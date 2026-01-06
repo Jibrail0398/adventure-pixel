@@ -9,3 +9,7 @@ func add_poin():
 	score += 1
 	coin_label.text = "You Collected: " + str(score)
 	hud_scene.update_score_text(score)
+# --- Tambahkan Fungsi Ini ---
+func game_over():
+	print("Game Over!")
+	hud_scene.show_game_over()
