@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b5d14ct27ofof" path="res://Level/Level_manager.tscn" id="9_iyc1c"]
 [ext_resource type="PackedScene" uid="uid://dw3i27yllr8hl" path="res://Scene/hud.tscn" id="10_7e7yc"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73toq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7e7yc"]
 texture = ExtResource("2_iyc1c")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -181,7 +181,7 @@ texture = ExtResource("2_iyc1c")
 
 [sub_resource type="TileSet" id="TileSet_03iqk"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_73toq")
+sources/0 = SubResource("TileSetAtlasSource_7e7yc")
 
 [sub_resource type="Animation" id="Animation_thj8p"]
 length = 0.001
