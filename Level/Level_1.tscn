@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxl5ahp3n5yjo"]
+[gd_scene load_steps=18 format=3 uid="uid://dxl5ahp3n5yjo"]
 
 [ext_resource type="Script" uid="uid://b3fqlk0iqf5ti" path="res://Script/node.gd" id="1_j7kct"]
 [ext_resource type="Texture2D" uid="uid://cstp1lfak1aci" path="res://Asset/sprites/world_tileset.png" id="2_iyc1c"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d1pnnwcrexyer" path="res://Scene/killzone.tscn" id="7_ldgm8"]
 [ext_resource type="PackedScene" uid="uid://cgd0ksnrtlb2y" path="res://Scene/enemy.tscn" id="8_lgp33"]
 [ext_resource type="PackedScene" uid="uid://b5d14ct27ofof" path="res://Level/Level_manager.tscn" id="9_iyc1c"]
+[ext_resource type="PackedScene" uid="uid://dw3i27yllr8hl" path="res://Scene/hud.tscn" id="10_7e7yc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73toq"]
 texture = ExtResource("2_iyc1c")
@@ -410,3 +411,6 @@ position = Vector2(646, 174.99997)
 
 [node name="Area2D" parent="Next Level Item" instance=ExtResource("9_iyc1c")]
 position = Vector2(1112, 49)
+
+[node name="HUD" parent="." instance=ExtResource("10_7e7yc")]
+unique_name_in_owner = true

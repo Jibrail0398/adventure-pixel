@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bt1yhidsdrt1k"]
+[gd_scene load_steps=10 format=3 uid="uid://bt1yhidsdrt1k"]
 
 [ext_resource type="PackedScene" uid="uid://dmlxdue07l5hy" path="res://Scene/player.tscn" id="1_mpmgm"]
 [ext_resource type="Texture2D" uid="uid://cstp1lfak1aci" path="res://Asset/sprites/world_tileset.png" id="2_cd4c1"]
 [ext_resource type="PackedScene" uid="uid://dhgafsio7cfeb" path="res://Scene/flatform.tscn" id="3_lqe3k"]
+[ext_resource type="PackedScene" uid="uid://dw3i27yllr8hl" path="res://Scene/hud.tscn" id="4_cd4c1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtmy8"]
 texture = ExtResource("2_cd4c1")
@@ -255,3 +256,6 @@ position = Vector2(744, 69)
 libraries = {
 &"": SubResource("AnimationLibrary_lqe3k")
 }
+
+[node name="HUD" parent="." instance=ExtResource("4_cd4c1")]
+unique_name_in_owner = true
