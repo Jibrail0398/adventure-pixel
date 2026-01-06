@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmypgqu822kp"]
+
+[ext_resource type="Script" uid="uid://21ej8vnr35ct" path="res://Scene/screen_title.gd" id="1_hqi2i"]
+[ext_resource type="Texture2D" uid="uid://cdc7bncxy6woc" path="res://Asset/images/Background.png" id="2_hqi2i"]
+
+[sub_resource type="Theme" id="Theme_x6may"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnced"]
+bg_color = Color(0.6901961, 0.4117647, 0.23137255, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 85.0
+offset_right = 13.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hqi2i")
+metadata/_edit_vertical_guides_ = [1846.0]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -650.0
+offset_top = -409.0
+offset_right = 2518.0
+offset_bottom = 1028.7778
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_hqi2i")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.742
+offset_top = -56.0
+offset_right = 134.742
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_x6may")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_pnced")
+text = "START"
+script = ExtResource("1_hqi2i")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
